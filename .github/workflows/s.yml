@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech For Girls Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #fceabb, #f8b500, #e0c3fc, #8ec5fc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            padding: 50px 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 50px;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            /* Set max height for scrolling */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a148c;
+            font-size: 2.5rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #7b1fa2;
+            box-shadow: 0 0 8px rgba(123, 31, 162, 0.3);
+        }
+
+        .flex-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flex-row>div {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        #shareBtn,
+        #submitBtn {
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        #shareBtn {
+            background-color: #25d366;
+            color: white;
+        }
+
+        #submitBtn {
+            background-color: #6a1b9a;
+            color: white;
+        }
+
+        #shareBtn:hover,
+        #submitBtn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        #counter {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        .upload-preview {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .upload-preview img {
+            max-width: 150px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: green;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .disabled {
+            background-color: #e0e0e0 !important;
+            pointer-events: none;
+            color: #777;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 3D Background Animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .cube {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translateZ(-200px) rotateY(0deg);
+            }
+
+            100% {
+                transform: translateZ(-200px) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="cube" style="top: 20%; left: 20%;"></div>
+        <div class="cube" style="top: 50%; left: 50%; animation-delay: 2s;"></div>
+        <div class="cube" style="top: 70%; left: 30%; animation-delay: 4s;"></div>
+        <div class="cube" style="top: 30%; left: 70%; animation-delay: 6s;"></div>
+    </div>
+    <div class="container">
+        <h2><i class="fas fa-user-edit"></i> Tech For Girls Registration</h2>
+        <form id="regForm">
+            <div class="flex-row">
+                <div>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required aria-required="true" />
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required aria-required="true" />
+                </div>
+            </div>
+            <div class="flex-row">
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required aria-required="true" />
+                </div>
+                <div>
+                    <label for="college">College / Department</label>
+                    <input type="text" id="college" required aria-required="true" />
+                </div>
+            </div>
+            <div class="flex-row">
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" required aria-required="true" />
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <select id="gender" required aria-required="true">
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex-row">
+                <div>
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" />
+                </div>
+            </div>
+            <label for="feedback">Why do you want to join Tech For Girls?</label>
+            <textarea id="feedback" rows="3" required aria-required="true"></textarea>
+
+            <label for="screenshot">Upload Screenshot (e.g., Resume, Photo)</label>
+            <input type="file" id="screenshot" accept="image/*" required aria-required="true" />
+            <div class="upload-preview" id="previewBox"></div>
+
+            <label>Share on WhatsApp</label>
+            <button type="button" id="shareBtn"><i class="fab fa-whatsapp"></i> Share on WhatsApp</button>
+            <div id="counter">Click count: 0/5</div>
+
+            <button type="submit" id="submitBtn">🎉 Submit Registration</button>
+        </form>
+        <div class="message" id="message"></div>
+        <div class="footer">© 2025 Tech For Girls Community. All rights reserved.</div>
+    </div>
+    <script>
+        let clickCount = 0;
+        const shareBtn = document.getElementById('shareBtn');
+        const counter = document.getElementById('counter');
+        const form = document.getElementById('regForm');
+        const message = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+        const previewBox = document.getElementById('previewBox');
+        const fileInput = document.getElementById('screenshot');
+
+        shareBtn.addEventListener('click', () => {
+            if (clickCount >= 5) return;
+
+            const whatsappText = encodeURIComponent("Hey Buddy, Join Tech For Girls Community: https://techforgirls.example.com");
+            window.open(`https://wa.me/?text=${whatsappText}`, '_blank');
+
+            clickCount++;
+            counter.innerText = `Click count: ${clickCount}/5`;
+
+            if (clickCount >= 5) {
+                shareBtn.disabled = true;
+                shareBtn.classList.add('disabled');
+                counter.innerText = 'Sharing complete. Please continue.';
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    previewBox.innerHTML = `<img src="${e.target.result}" alt="Preview" />`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewBox.innerHTML = '';
+            }
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (clickCount < 5) {
+                alert("Please complete WhatsApp sharing first (5 times). Click count: " + clickCount);
+                return;
+            }
+
+            const formData = new FormData(form);
+
+            fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.text())
+                .then(data => {
+                    console.log('Success:', data);
+                    message.innerText = "🎉 Your submission has been recorded. Thanks for being part of Tech for Girls!";
+                    triggerConfetti();
+                    [...form.elements].forEach(el => el.disabled = true);
+                    submitBtn.classList.add('disabled');
+                    shareBtn.classList.add('disabled');
+                    localStorage.setItem('submitted', 'true');
+                });
+
+        });
+
+        function triggerConfetti() {
+            const canvas = document.createElement('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            const colors = ['#FF0D72', '#0DC2FF', '#0DFF72', '#F0FF0D', '#FF7F0D'];
+            const particles = [];
+
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 5 + 2,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 3 + 1,
+                    direction: Math.random() * 360
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    p.x += p.speed * Math.cos(p.direction);
+                    p.y += p.speed * Math.sin(p.direction);
+                    if (p.x > canvas.width || p.x < 0 || p.y > canvas.height || p.y < 0) {
+                        p.x = Math.random() * canvas.width;
+                        p.y = Math.random() * canvas.height;
+                    }
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('submitted') === 'true') {
+                [...form.elements].forEach(el => el.disabled = true);
+                submitBtn.classList.add('disabled');
+                shareBtn.classList.add('disabled');
+                message.innerText = "🎉 You have already submitted. Thank you!";
+            }
+        });
+    </script>
+</body>
+
+</html>
